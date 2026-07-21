@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Client Intelligence — Prototype</title>
+  <meta name="description"
+    content="AI-powered coaching dashboard displaying client health and wellness data with weekly analysis.">
+
+  <!-- Google Fonts — Fraunces for display headings only; body uses system Helvetica Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">GenAI client intelligence · prototype</div>
+        <h1 id="pageTitle">Client A — Week 1 brief</h1>
+        <div class="period" id="pagePeriod"></div>
+      </div>
+      <div class="status-pill" id="statusPill"><span class="status-dot"></span><span id="statusText"></span></div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="swatch sw-fact"></span>Confirmed fact</div>
+      <div class="legend-item"><span class="swatch sw-report"></span>Client-reported</div>
+      <div class="legend-item"><span class="swatch sw-infer"></span>AI inference</div>
+      <div class="legend-item"><span class="swatch sw-missing"></span>Missing / unavailable</div>
+    </div>
+
+    <div class="alert" id="alertBox" style="display:none;">
+      <div class="alert-mark">!</div>
+      <div>
+        <div class="alert-title" id="alertTitle"></div>
+        <div class="alert-body" id="alertBody"></div>
+      </div>
+    </div>
+
+    <!-- ===== unified chart panel ===== -->
+    <div class="chart-panel">
+      <div class="week-row" id="weekRow"></div>
+      <div class="tab-row" id="tabRow"></div>
+      <div class="chart-insight" id="chartInsight"></div>
+      <div class="chart-sub" id="chartSub"></div>
+      <div class="fade-legend" id="fadeLegend" style="display:none;"></div>
+      <div class="chart-canvas-wrap">
+        <canvas id="chartCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- ===== last week vs this week comparison ===== -->
+    <div class="compare-panel">
+      <h3 id="compareTitle">Compared to last week</h3>
+      <div class="compare-sub" id="compareSub"></div>
+      <div id="compareBody"></div>
+    </div>
+
+    <div class="section-title">Client intelligence, by area</div>
+    <div class="grid" id="cardGrid"></div>
+
+    <div class="section-title">Barriers &amp; pending actions</div>
+    <div class="list-grid">
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:10px;">Key barriers</h3>
+        <ul class="simple-list" id="barrierList"></ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:10px;">Pending actions</h3>
+        <ul class="simple-list" id="pendingList"></ul>
+      </div>
+    </div>
+
+    <div class="section-title">Risk / attention flags</div>
+    <div class="list-grid" id="flagGrid"></div>
+
+    <div class="reco">
+      <h3>Recommended next action for the Client</h3>
+      <ol id="recoList"></ol>
+    </div>
+
+    <div class="section-title">Keep the record going</div>
+    <div class="upload-panel">
+      <h3 id="uploadHeading">Add next week's conversation</h3>
+      <div class="upload-sub">Paste the chat below, or upload a .txt export. (Screenshots would run through OCR first in
+        a full build — same pipeline from here on.)</div>
+      <textarea class="upload-text" id="uploadText"
+        placeholder="Paste next week's client-coach chat here..."></textarea>
+      <div class="upload-row">
+        <label class="file-label">Upload .txt file<input type="file" id="uploadFile" accept=".txt"
+            style="display:none;"></label>
+        <button class="analyze-btn" id="analyzeBtn" onclick="handleAnalyze()">Analyze this week</button>
+      </div>
+      <div class="upload-status" id="uploadStatus"></div>
+    </div>
+
+    <div class="footnote">All findings above are AI-generated from the source conversation and require coach review.
+      Approve, edit, or reject each item before it is saved to the client's record.</div>
+  </div>
+
+  <!-- ===== scripts — load order matters ===== -->
+  <!-- 0. Chart.js from CDN (must come before chart.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- 0b. Data-labels plugin — auto-registers with Chart.js, enables floating value labels -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2/dist/chartjs-plugin-datalabels.min.js"></script>
+  <!-- 1. Static data & config (no dependencies) -->
+  <script src="js/data.js"></script>
+  <!-- 2. Chart math & rendering (depends on Chart.js CDN + data.js) -->
+  <script src="js/chart.js"></script>
+  <!-- 3. Card approve/edit/reject actions (no external JS dependencies) -->
+  <script src="js/actions.js"></script>
+  <!-- 4. All render functions (depends on data.js + chart.js + actions.js) -->
+  <script src="js/render.js"></script>
+  <!-- 5. Upload panel & Anthropic API call (depends on data.js + render.js) -->
+  <script src="js/upload.js"></script>
+  <!-- 6. Entry point — wires event listeners and calls renderAll() (depends on all above) -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

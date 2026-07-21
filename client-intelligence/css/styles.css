@@ -1,0 +1,796 @@
+/* ============================================================
+   CSS Custom Properties (Design Tokens)
+   ============================================================ */
+:root {
+  --bg: #FAF7F1;
+  --surface: #FFFFFF;
+  --ink: #22291F;
+  --ink-soft: #5B6357;
+  --ink-faint: #8B9184;
+  --line: #E6E0D3;
+  --line-soft: #F0EBE0;
+
+  --teal: #2F6F62;
+  --teal-bg: #E7F0EC;
+  --amber: #B5792A;
+  --amber-bg: #F7EEDD;
+  --coral: #AE4A34;
+  --coral-bg: #F7E7E2;
+  --lav: #665C9E;
+  --lav-bg: #ECEAF6;
+  --gray-bg: #F0EEE7;
+
+  /* Typography — system Helvetica Neue stack */
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+
+/* ============================================================
+   Base / Reset
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 52px 24px 100px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* ============================================================
+   Top Bar
+   ============================================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  font-family: var(--font-body);
+}
+
+.topbar h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+.period {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+
+.status-attention {
+  background: var(--coral-bg);
+  color: var(--coral);
+}
+
+.status-ok {
+  background: var(--teal-bg);
+  color: var(--teal);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+
+/* ============================================================
+   Legend
+   ============================================================ */
+.legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 24px 0 28px;
+  padding: 14px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.sw-fact {
+  background: var(--teal);
+}
+
+.sw-report {
+  background: var(--amber);
+}
+
+.sw-infer {
+  background: var(--lav);
+}
+
+.sw-missing {
+  background: var(--ink-faint);
+}
+
+
+/* ============================================================
+   Alert Banner
+   ============================================================ */
+.alert {
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: var(--coral-bg);
+  border: 1px solid #E8C9BE;
+  margin-bottom: 28px;
+}
+
+.alert-mark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--coral);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alert-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--coral);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.alert-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+
+/* ============================================================
+   Upload Panel
+   ============================================================ */
+.upload-panel {
+  background: var(--surface);
+  border: 1px dashed var(--ink-faint);
+  border-radius: 14px;
+  padding: 28px 28px;
+  margin-bottom: 32px;
+}
+
+.upload-panel h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.upload-sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  line-height: 1.55;
+}
+
+.upload-text {
+  width: 100%;
+  min-height: 100px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  resize: vertical;
+  margin-bottom: 12px;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.file-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--gray-bg);
+}
+
+.analyze-btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: .01em;
+}
+
+.analyze-btn:disabled {
+  background: var(--ink-faint);
+  cursor: not-allowed;
+}
+
+.upload-status {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+  color: var(--ink-soft);
+}
+
+.upload-status.err {
+  color: var(--coral);
+}
+
+.upload-status.ok {
+  color: var(--teal);
+}
+
+
+/* ============================================================
+   Chart Panel
+   ============================================================ */
+.chart-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 28px 28px;
+  margin-bottom: 24px;
+}
+
+.week-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.week-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--gray-bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.week-btn.active {
+  background: var(--lav);
+  color: #fff;
+  border-color: var(--lav);
+}
+
+.tab-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  font-size: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--gray-bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  font-weight: 600;
+}
+
+.chart-insight {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.chart-sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+
+.chart-conf {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.fade-legend {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.fade-legend .dash {
+  display: inline-block;
+  width: 16px;
+  border-top: 2px dashed var(--ink-faint);
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.fade-legend .solid {
+  display: inline-block;
+  width: 16px;
+  border-top: 2px solid var(--ink);
+  vertical-align: middle;
+  margin: 0 5px 0 14px;
+}
+
+/* Canvas container — Chart.js needs a positioned parent for responsive height */
+.chart-canvas-wrap {
+  position: relative;
+  height: 260px;
+  width: 100%;
+}
+
+
+/* ============================================================
+   Comparison Strip
+   ============================================================ */
+.compare-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 28px 28px;
+  margin-bottom: 24px;
+}
+
+.compare-panel h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.compare-sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.compare-empty {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.compare-cell {
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 16px 18px;
+  background: var(--bg);
+}
+
+.compare-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.compare-vals {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.compare-prev {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.compare-arrow {
+  font-size: 16px;
+}
+
+.compare-curr {
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+.trend-good {
+  color: var(--teal);
+}
+
+.trend-bad {
+  color: var(--coral);
+}
+
+.trend-flat {
+  color: var(--ink-faint);
+}
+
+@media (max-width: 720px) {
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ============================================================
+   Section Titles
+   ============================================================ */
+.section-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-faint);
+  margin: 44px 0 16px;
+}
+
+
+/* ============================================================
+   Cards Grid
+   ============================================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-head h3 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+
+.b-fact {
+  background: var(--teal-bg);
+  color: var(--teal);
+}
+
+.b-report {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.b-infer {
+  background: var(--lav-bg);
+  color: var(--lav);
+}
+
+.b-missing {
+  background: var(--gray-bg);
+  color: var(--ink-faint);
+}
+
+.headline {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.headline.rejected {
+  text-decoration: line-through;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.detail {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.quote {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  background: var(--gray-bg);
+  border-left: 3px solid var(--line);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.act-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 120ms;
+}
+
+.act-btn:hover {
+  border-color: var(--ink-faint);
+}
+
+.act-btn.active-approve {
+  background: var(--teal-bg);
+  color: var(--teal);
+  border-color: var(--teal-bg);
+  font-weight: 600;
+}
+
+.act-btn.active-reject {
+  background: var(--coral-bg);
+  color: var(--coral);
+  border-color: var(--coral-bg);
+  font-weight: 600;
+}
+
+.edit-box {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 8px;
+  resize: vertical;
+  min-height: 54px;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+
+/* ============================================================
+   Lists Grid (Barriers & Pending)
+   ============================================================ */
+.list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+ul.simple-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+ul.simple-list li {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+
+/* ============================================================
+   Risk / Flag Cards
+   ============================================================ */
+.flag-card {
+  border-left: 3px solid var(--coral);
+}
+
+.flag-card.medium {
+  border-left-color: var(--amber);
+}
+
+.flag-sev {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.flag-card.high .flag-sev {
+  color: var(--coral);
+}
+
+.flag-card.medium .flag-sev {
+  color: var(--amber);
+}
+
+
+/* ============================================================
+   Recommendations Block
+   ============================================================ */
+.reco {
+  background: var(--teal-bg);
+  border-radius: 14px;
+  padding: 28px 30px;
+  margin-top: 44px;
+}
+
+.reco h3 {
+  color: var(--teal);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.reco ol {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.reco li {
+  margin-bottom: 9px;
+  line-height: 1.55;
+}
+
+
+/* ============================================================
+   Footnote
+   ============================================================ */
+.footnote {
+  margin-top: 44px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-faint);
+  text-align: center;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 720px) {
+  .wrap {
+    padding: 32px 16px 80px;
+  }
+
+  .topbar h1 {
+    font-size: 28px;
+  }
+
+  .grid,
+  .list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chart-canvas-wrap {
+    height: 200px;
+  }
+}
