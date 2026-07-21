@@ -1,3 +1,9 @@
 {
-  "outputDirectory": "client-intelligence"
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/client-intelligence/$1"
+    }
+  ]
 }
